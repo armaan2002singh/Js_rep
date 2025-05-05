@@ -43,3 +43,4 @@ const myfunction =function(){
 // console.log(typeof bignumber); // bigint
 // console.log(typeof null); // object
 // console.log(typeof undefined); // undefined
+
