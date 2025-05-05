@@ -26,3 +26,4 @@ let isloggedin = false
 console.log(typeof"ARMAAN"); // string
 console.log(typeof null); //object
 console.log(typeof undefined); //undefined
+console.log(typeof 12); //number
