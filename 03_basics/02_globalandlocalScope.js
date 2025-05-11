@@ -3,7 +3,7 @@
 
 //these are introduced because var, for block scope which should exist but not working like that.
 
-//{} --> it is scope in every programming language.
+//{block} --> it is scope in every programming language.
 
 // this "{}" is also used in object but there it is used to declare the object. however, in conditional statements and functions then there it is considered as a scope.
 
@@ -25,7 +25,7 @@ console.log(c); // here the result was printing, where it should not be, even th
 */
 
 //var c= 300;
-let a = 300;
+//let a = 300;
 //global scope written outside openly.
 if(true){
     //block scope written inside the curly braces
@@ -38,15 +38,12 @@ if(true){
     //now the scope of these are in these curly braces
 }
 
- console.log(a); // result will be a = 300; because the value was declared outside.
+ //console.log(a); // result will be a = 300; because the value was declared outside.
 // console.log(b);
 //console.log(c); // here the value was already declared before the if statement. but it is showing the updated value of c = 39, even the outside value was c = 300,
 
 //----> "The values is written as global scope is available for inside the block, but the value which was declared inside was not accessed outisde of the block."
 
-for (let i = 0; i < array.length; i++) {
-    const element = array[i];
-    
-} //here if "i" is in the loop so noone want that this "i"  creartes mess outside, in global scope.
+ //here if "i" is in the loop so noone want that this "i"  creartes mess outside, in global scope.
 
 //if we run code in browser's inspection then the scope is different from a code editor scope.
