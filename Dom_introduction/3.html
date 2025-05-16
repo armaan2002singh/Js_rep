@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Armaan</title>
+</head>
+<body style='background-color: rgb(218, 218, 218);'>
+    
+</body>
+<script>
+    const div = document.createElement('h1')// will create an element can check it in inspection's Info.
+    console.log(div);
+    div.className = "main"
+    div.id = Math.round(Math.random()*10 +1)
+    //creates the class and id as well.
+    div.setAttribute("title","generate title")
+    div.style.backgroundColor = "#75716e"
+    div.style.padding = "5px"
+    //div.innerText = "Armaan Singh"
+
+    // till this we have given the attributes and style to the div but it is not visible  on the brower yet, because righnow it is in the -- memory not attached on document.
+    // attaching -->
+    const addTextNode = document.createTextNode("Creation of div")
+    div.appendChild(addTextNode)// will add text -- "Creation of div" in div.
+
+    document.body.appendChild(div)
+</script>
+</html>

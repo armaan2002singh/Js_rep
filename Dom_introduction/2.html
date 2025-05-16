@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Armaan</title>
+</head>
+
+<body style="background-color:rgb(248, 225, 198); color: #6f6f6f">
+    <div class="parent" id="parent">
+        <!-- this is a comment -->
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent')
+    console.log(parent);// got access of parent class.
+    console.log(parent.children);//HTMLCollection(4) [div.day, div.day, div.day, div.day]0: div.day1: div.day2: div.day3: div.daylength: 4[[Prototype]]: HTMLCollection
+    console.log(parent.children[0].innerHTML);//<div class="day">Monday</div>, innerHTML is Monday
+
+    // const days = Array.from(parent.children)
+
+    for (let i = 0; i < parent.children.length; i++) {
+        console.log(parent.children[i].innerHTML);
+    }
+    //printed the all children of parent with innerHTML will print its inner text.-->
+    // Monday
+    // Tuesday
+    // Wednesday
+    // Thursday
+        
+    //parent.children[1].style.color = 'red'
+    console.log(parent.firstElementChild);// got monday child 
+    console.log(parent.lastElementChild);// got tuesday child 
+    
+    const day1 = document.querySelector('.day')
+    console.log(day1);
+    console.log(day1.parentElement);// will get you the parent element --> good step to find parent through the child instead of using queryselector again and again, which effect the whole performance.
+    console.log(day1.nextElementSibling);
+    // will help to get the next element sibling of the collect.
+    console.log("NODES : ", parent.childNodes);//--> below is a complex tree structure of parents-child
+    // 16:39 of chai our code - video 33
+    /*NODES :  NodeList(9)
+    [
+    text, div.day, text, 
+    div.day, text, 
+    div.day, text, 
+    div.day, text]
+    0: text
+    1: div.day
+    2: text
+    3: div.day
+    4: text
+    5: div.day
+    6: text
+    7: div.day
+    8: textlength: 
+    9[[Prototype]
+    ]: NodeList
+    */
+   // upper thing is like even, i gave a line break in code then that will also consider in the tree structure.   
+   const div = document.createElement('div')
+
+   console.log(div);
+   div.innerText = "These are the 4 days of a week"
+   div.style.width = "200px"
+   div.style.color = "black"
+   div.style.borderRadius = "3px"
+   div.style.backgroundColor = "grey"
+   div.style.marginTop = "10px"
+   document.body.appendChild(div)
+</script>
+
+</html>
