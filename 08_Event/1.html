@@ -8,14 +8,15 @@
 <body style="background-color:#414141; color:aliceblue; padding:10px">
     <h2>Amazing Image</h2>
     <div>
-        <ul>
+        <ul id="images">
             <li><img width="200px" id="photoshop" src="https://www.bing.com/th/id/OIP.NOH8bBZLrC_5WpwupOJNkwHaEX?w=240&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="photoshop"></li>
 
             <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
 
-            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
 
-            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li> 
+            <!-- this approach is not good,where alert is written in html code -> onclick="alert('owl'), but can be use it React -->
 
             <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
 
@@ -25,5 +26,69 @@
 </body>
 <script>
     //all events in js always run sequaciously, some expections but they are ignored, also some browser events - actives according to activity.
+
+    //2nd approch
+    // document.getElementById('owl').onclick = function () {
+    //     alert('owl')
+    // }// there is also problem in this approach as well becauce onclick on id can give you a problem and will give less features
+    
+    
+    //3rd approch
+    // document.getElementById('owl').addEventListener('click', function (e) {
+    //     //basics of event object
+    //     console.log(e);
+    // }, false)
+    //well there are three parameters in addeventListener (Event, function, false/true-false is default) -- event propogation.
+    /*1. Event bubbling
+      2. Event Capturing*/
+    //examples of bubbling up -false- bubbles goes up from down
+    //but this is not a good thing
+    // document.getElementById('images').addEventListener('click', function (e) {
+    //     //basics of event object
+    //     console.log("clicked inside UL");
+    // }, false)
+        
+    
+    // document.getElementById('owl').addEventListener('click', function (e) {
+    //     //basics of event object
+    //     console.log("owl clicked");
+    //     e.stopPropagation()// if i will use this then the will not bubble to up.
+    // }, false)
+
+    //example -true- capturing mode, here it goes from top to bottom,like when will click the owl then first the parent will be printed.
+
+
+    //what to read -e
+    //type, timestamp, defaultbehaviour, target, --> SourceElement, Client(x, y, etc), keys- altkey, etc.
+
+    //4th approcah
+    // attachEventListener()-- old one
+
+    //5th approach
+    //jQuery - on
+
+
+    //stoppropagtion, preventDefault
+    
+    // document.getElementById('google').addEventListener('click', (e)=>{
+    //     e.preventDefault()
+    //     console.log('google clicked');
+    //     e.stopPropagation()
+    // }, false)
+
+
+    //............................code if i will click an image then should be disappeared
+    document.querySelector('#images').addEventListener('click', (e)=>{
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            
+            let removeIt = e.target.parentNode
+        removeIt.remove() // will remove when i will click them
+        }
+        
+        //removeIt.parentNode.removeChilt(removeIt) //-- old method 
+    },false)
+
 </script>
 </html>
