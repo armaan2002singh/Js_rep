@@ -1,6 +1,6 @@
 # solution-Code
 
-## Project - 1 
+## Project - 2
 #### Js-Code 
 ```javaScript
 const form = document.querySelector('form')
