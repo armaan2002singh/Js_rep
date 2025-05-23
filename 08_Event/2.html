@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Armaan Singh</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTimeout(()=>{
+    //     console.log("Armaan singh");
+        
+    // }, 2000)// setting the time like given 2 seconds then, it executed the code. it is like handling the time.
+    const sayArmaan = ()=>{
+        console.log("Armaan singh");
+        
+    }
+    // document.querySelector('h1').innerHTML='Best js series' // if i want to execute the same thing after some time then-->
+    const changeText = function () {
+        document.querySelector('h1').innerHTML='Best js series'
+    }
+    
+
+    setTimeout(sayArmaan, 2000)// here added the reference of the function.
+
+    //if ihave applied the setTimeOut then if i want to stop  it then how it is possible to do,-->
+    const changeMe =setTimeout(changeText,2000) 
+    //-->will need a reference.
+    
+    document.querySelector('#stop').addEventListener('click', ()=>{
+        console.log("STOPPED");
+        clearTimeout(changeMe)
+    }) // stopped the event of changeMe,  when i clicked it before it happens.
+</script>
+</html>

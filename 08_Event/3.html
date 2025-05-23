@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Armaan Singh aulakh</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+   
+</body>
+<script>
+    //to make it to start with same variable need to declare a global one with same name -->
+    let intervalId = null
+
+    //start
+    document.querySelector('#start').addEventListener('click',()=>{
+        console.log("Start");   
+        intervalId = setInterval(sayDate, 2000,"hey!")// here we can also pass parameters.("hey!")  
+        
+    })
+
+    // //stop
+    document.querySelector('#stop').addEventListener('click',()=>{
+        console.log("stop");
+        clearInterval(intervalId)
+    })
+
+
+    const sayDate =function(str){
+        console.log(str,Date.now());
+        
+    }
+    
+
+
+    // clearInterval(intervalId)
+
+</script>
+</html>
