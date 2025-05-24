@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Request</title>
+</head>
+<body style="background-color: #212121;">
+
+<!-- tutorial number 39 of js
+  0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest() // new is used make refresh request.
+    xhr.open('GET', requestUrl) // two parameters are present in it one- method or second- string.
+    //after this open() has not been called.
+    //console.log("HERE"); // checking
+    //console.log(xhr.readyState);// checking of status code. Which is one
+    
+    xhr.onreadystatechange = function(){
+        console.log(xhr.responseText);
+        if(xhr.readyState===4){
+            const data = JSON.parse(this.responseText) // JSON's function parse is used to transfer the String data to object.
+            console.log(typeof data); //string, but after using the JSON.parse - change to object.
+
+            // most of the time response data will in string, some times it can be object.
+
+            
+            console.log(data.followers);
+            
+            
+        }// this -- currrent context.
+    }// to check continious stage. With change of stage.
+    
+    xhr.send() // now when we used send(), then it is called.
+
+
+    //console -- is not available in core - JS doc, document as well 
+    //console -- is a debugging tool injected by Js at the time.
+    
+
+    //---------------------> V-8 engine - written in C++. provdes the debugging tools and API access etc.
+    // and JS as well run on C++ 
+    //console.log is also available on it.
+
+    // D-8 folder of V-8 engine has two folder. One is D8console.cc (is real - console.log) timestamp-27:50 sec.
+
+    
+</script>
+</html>
