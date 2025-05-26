@@ -25,6 +25,7 @@
     
     xhr.onreadystatechange = function(){
         console.log(xhr.responseText);
+                
         if(xhr.readyState===4){
             const data = JSON.parse(this.responseText) // JSON's function parse is used to transfer the String data to object.
             console.log(typeof data); //string, but after using the JSON.parse - change to object.

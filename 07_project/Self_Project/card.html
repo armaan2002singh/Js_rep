@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access of Data</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+        }
+
+        .card>div:last-child {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            /* optional for spacing */
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 30%;
+            background-color: white;
+            margin-left: 30px;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 3px 16px;
+            background-color: white;
+        }
+
+
+        /* Ensure h4 and p do not overflow */
+        .container h4,
+        .container p {
+            margin: 8px 0;
+            word-break: break-word;
+            justify-content: center;
+        }
+
+        #button {
+
+            width: 80px;
+            height: 30px;
+            background-color: antiquewhite;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <img src="https://www.bing.com/th/id/OIP.Op8CEP99HoMDn_I3yBusrgHaEI?w=244&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"
+            alt="Avatar" style="width:100%">
+        <div class="container">
+            <h4><b>Name</b></h4>
+            <p id="role">Architect & Engineer</p>
+        </div>
+        <div>
+            <button id="button">Data</button>
+        </div>
+    </div>
+
+</body>
+<script src="actions.js"></script>
+
+</html>
