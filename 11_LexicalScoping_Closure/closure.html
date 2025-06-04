@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOSURE</title>
+</head>
+
+<body>
+    <button id="orange">ORGANGE</button>
+    <button id="green">GREEN</button>
+
+</body>
+<script>
+    /*Closures
+    A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
+    */
+
+   // to study the Closure first we need to study //LEXICAL SCOPING
+//    function init() {
+//             let name = "Mozilla"; 
+//             function displayName() {
+//                 console.log(name); 
+//             }
+//             displayName();
+//             }
+//     init();
+
+
+    /* EXPLANATION OF ABOVE FUNCTION--->
+        //(Initt) creates a local variable called nase and a function called displayWare(7. The displayane(i function is an inner function that is defined inside init() and is available only within the body of the inst function. Note that the displayane() function has no local variables of its own. However, since inner functions have access to the variables of outer functions, displaylane() can access the variable declared in the parent function, initi)
+        //--> called LAXICAL SCOPING
+    //*/
+
+    // function outer(){
+    //     let userName = "Armaan"
+    //     function inner(){
+    //         console.log('inner',userName);
+            
+    //     }
+    //     inner();
+    //     function inner2(){
+    //         console.log('inner2',userName);
+            
+    //     }
+    //     inner2();
+    // }
+    // outer();
+    // console.log('TOO OUTER : ',userName); // due to scope of username - will show the Uncaught reference -- which is user name is not defined.
+    
+    //Closure ----> 
+    // function makeFunct(){
+    //     const name = "Mozilla"
+    //     function displayname(){
+    //         console.log(name);
+    //     }
+    //     return displayname;
+    // }
+
+    // const myFunc = makeFunct();
+    // myFunc();
+
+    
+</script>
+<script>
+    // Practical Explanation of this case...........................
+    // document.getElementById('orange').onclick =function (){
+    //     document.body.style.backgroundColor = "orange"
+    // }
+
+    //  document.getElementById('green').onclick =function (){
+    //     document.body.style.backgroundColor = "green"
+    // }
+
+    // will learn donot repeat yourself concept. Will create click handler.
+
+    function clickHandler(color){
+       // document.body.style.backgroundColor = `${color}`
+
+       return function(){
+        document.body.style.backgroundColor = `${color}`
+       }
+    }
+    document.getElementById('orange').onclick = clickHandler('orange')
+    document.getElementById('green').onclick = clickHandler('green')
+
+    //use of closure................
+</script>
+
+</html>
